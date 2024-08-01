@@ -1,7 +1,78 @@
 import 'package:flutter/material.dart';
+import 'package:mcgaming/model/gameDataModel.dart';
+import 'package:mcgaming/pages/game_detail.dart';
 
-class PlayLater extends StatelessWidget {
+class PlayLater extends StatefulWidget {
   const PlayLater({super.key});
+
+  @override
+  State<PlayLater> createState() => _PlayLaterState();
+}
+
+class _PlayLaterState extends State<PlayLater> {
+  static List gamename = [
+    'Tic Tac Toe',
+    'Forza Horizon 5 xbox',
+    'Forza Horizon 5 open world',
+    'Forza Horizon 5 fps',
+    'Forza Horizon 5 rpg'
+  ];
+  static List url = [
+    'lib/images/tictactoe.avif',
+    'lib/images/forzahorizon.jpg',
+    'lib/images/forzahorizon.jpg',
+    'lib/images/forzahorizon.jpg',
+    'lib/images/forzahorizon.jpg'
+  ];
+  static List developer = [
+    'developer 1',
+    'developer 2',
+    'developer 3',
+    'developer 4',
+    'developer 5'
+  ];
+  static List releaseDate = [
+    'September 23, 2022',
+    'November 9, 2021',
+    'November 11, 2021',
+    'November 25, 2021',
+    'November 9, 2021'
+  ];
+  static List publishedBy = [
+    'Ubisoft',
+    'Garena',
+    'Electronic Arts',
+    'Capcom',
+    'Garena'
+  ];
+  static List genre = ['RPG', 'Xbox Game Pass', 'Open World', 'FPS', 'RPG'];
+  static List description = [
+    'Forza Horizon focuses specifically on casual street racing, rather than professionally on race tracks, as it takes place on a map of temporarily closed public roads. The open-world map that players can explore is based on the U.S. state of Colorado.',
+    'Forza Horizon focuses specifically on casual street racing, rather than professionally on race tracks, as it takes place on a map of temporarily closed public roads. The open-world map that players can explore is based on the U.S. state of Colorado.',
+    'Forza Horizon focuses specifically on casual street racing, rather than professionally on race tracks, as it takes place on a map of temporarily closed public roads. The open-world map that players can explore is based on the U.S. state of Colorado.',
+    'Forza Horizon focuses specifically on casual street racing, rather than professionally on race tracks, as it takes place on a map of temporarily closed public roads. The open-world map that players can explore is based on the U.S. state of Colorado.',
+    'Forza Horizon focuses specifically on casual street racing, rather than professionally on race tracks, as it takes place on a map of temporarily closed public roads. The open-world map that players can explore is based on the U.S. state of Colorado.'
+  ];
+  static List tag = [
+    ['Racing', 'Extreme'],
+    ['Racing', 'Extreme'],
+    ['Racing', 'Extreme'],
+    ['Racing', 'Extreme'],
+    ['Racing', 'Extreme']
+  ];
+
+  final List<Gamedatamodel> gamesdata = List.generate(
+    gamename.length,
+    (index) => Gamedatamodel(
+        '${gamename[index]}',
+        '${url[index]}',
+        '${developer[index]}',
+        '${releaseDate[index]}',
+        '${publishedBy[index]}',
+        '${genre[index]}',
+        '${description[index]}',
+        tag[index]),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -20,17 +91,15 @@ class PlayLater extends StatelessWidget {
                   children: [
                     Image.asset(
                       'lib/images/logo_mcgaming.png',
-                      width: 100.0, // Adjust the size as needed
+                      width: 100.0,
                       height: 100.0,
                     ),
-                    const SizedBox(
-                        width: 10), // Space between the image and text
+                    const SizedBox(width: 10),
                   ],
                 ),
                 const SizedBox(
-                  width:
-                      200.0, // Set the desired width for the search container
-                  height: 40.0, // Adjust the height of the search container
+                  width: 200.0,
+                  height: 40.0,
                   child: TextField(
                     decoration: InputDecoration(
                       hintText: "Search something",
@@ -43,14 +112,14 @@ class PlayLater extends StatelessWidget {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(30.0)),
                         borderSide: BorderSide(
-                          color: Color(0xffE299FF), // Purple border color
+                          color: Color(0xffE299FF),
                           width: 1.5,
                         ),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(30.0)),
                         borderSide: BorderSide(
-                          color: Color(0xffE299FF), // Purple border color
+                          color: Color(0xffE299FF),
                           width: 2.0,
                         ),
                       ),
@@ -63,29 +132,28 @@ class PlayLater extends StatelessWidget {
             ),
           ),
           bottom: PreferredSize(
-            preferredSize:
-                const Size.fromHeight(10.0), // Height of the bottom area
+            preferredSize: const Size.fromHeight(10.0),
             child: Container(
               decoration: const BoxDecoration(
-                color: Color(0xffE299FF), // Background color of the bottom area
+                color: Color(0xffE299FF),
                 boxShadow: [
                   BoxShadow(
-                    color: Color(0xffE299FF), // Shadow color and opacity
-                    offset: Offset(0, 3), // Shadow offset
-                    blurRadius: 4.0, // Shadow blur radius
+                    color: Color(0xffE299FF),
+                    offset: Offset(0, 3),
+                    blurRadius: 4.0,
                   ),
                 ],
               ),
-              height: 2.0, // Border thickness
+              height: 2.0,
             ),
           ),
         ),
-        body: const DefaultTabController(
+        body: DefaultTabController(
           length: 5,
           child: Column(
             children: [
-              SizedBox(height: 40),
-              Text(
+              const SizedBox(height: 40),
+              const Text(
                 'PLAY LATER',
                 style: TextStyle(
                   color: Color(0xffE399FF),
@@ -93,8 +161,8 @@ class PlayLater extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 20),
-              TabBar(
+              const SizedBox(height: 20),
+              const TabBar(
                 isScrollable: true,
                 tabAlignment: TabAlignment.start,
                 labelColor: Colors.white,
@@ -111,31 +179,11 @@ class PlayLater extends StatelessWidget {
               Expanded(
                 child: TabBarView(
                   children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          CircleAvatar(
-                            radius: 50.0, // Adjust radius as needed
-                            backgroundImage: AssetImage('lib/images/clow_close.png'),
-                          ),
-                          CircleAvatar(
-                            radius: 50.0, // Adjust radius as needed
-                            backgroundImage: AssetImage('lib/images/clow_close.png'),
-                          ),
-                        ],
-                      ),
-                    Center(
-                        child: Text("Tab 2",
-                            style: TextStyle(color: Color(0xffE299FF)))),
-                    Center(
-                        child: Text("Tab 3",
-                            style: TextStyle(color: Color(0xffE299FF)))),
-                    Center(
-                        child: Text("Tab 4",
-                            style: TextStyle(color: Color(0xffE299FF)))),
-                    Center(
-                        child: Text("Tab 5",
-                            style: TextStyle(color: Color(0xffE299FF)))),
+                    AllGamesTab(gamesdata: gamesdata),
+                    GenreGamesTab(gamesdata: gamesdata, genre: 'RPG'),
+                    GenreGamesTab(gamesdata: gamesdata, genre: 'Xbox Game Pass'),
+                    GenreGamesTab(gamesdata: gamesdata, genre: 'Open World'),
+                    GenreGamesTab(gamesdata: gamesdata, genre: 'FPS'),
                   ],
                 ),
               ),
@@ -143,6 +191,112 @@ class PlayLater extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class AllGamesTab extends StatelessWidget {
+  final List<Gamedatamodel> gamesdata;
+
+  const AllGamesTab({super.key, required this.gamesdata});
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+      padding: const EdgeInsets.all(10),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        childAspectRatio: 1.5,
+      ),
+      itemCount: gamesdata.length,
+      itemBuilder: (context, index) {
+        return GestureDetector(
+          onTap: () {
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => GameDetail(
+                      gamedatamodel: gamesdata[index],
+                    )));
+          },
+          child: Column(
+            children: [
+              Expanded(
+                child: Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(gamesdata[index].imageURL),
+                      fit: BoxFit.cover,
+                    ),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 5),
+              Text(
+                gamesdata[index].name,
+                style: const TextStyle(color: Colors.white),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+}
+
+class GenreGamesTab extends StatelessWidget {
+  final List<Gamedatamodel> gamesdata;
+  final String genre;
+
+  const GenreGamesTab(
+      {super.key, required this.gamesdata, required this.genre});
+
+  @override
+  Widget build(BuildContext context) {
+    final filteredGames =
+        gamesdata.where((game) => game.genre == genre).toList();
+    return GridView.builder(
+      padding: const EdgeInsets.all(10),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        childAspectRatio: 1.5,
+      ),
+      itemCount: filteredGames.length,
+      itemBuilder: (context, index) {
+        return GestureDetector(
+          onTap: () {
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => GameDetail(
+                      gamedatamodel: filteredGames[index],
+                    )));
+          },
+          child: Column(
+            children: [
+              Expanded(
+                child: Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(filteredGames[index].imageURL),
+                      fit: BoxFit.cover,
+                    ),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 5),
+              Text(
+                filteredGames[index].name,
+                style: const TextStyle(color: Colors.white),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }
