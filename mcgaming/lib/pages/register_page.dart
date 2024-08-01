@@ -76,6 +76,7 @@ class RegisterPage extends StatelessWidget {
                   controller: usernameController,
                   hintText: 'Email',
                   obscureText: false,
+                  prefixIcon: const Icon(Icons.email, color: Color(0xffAD94C7),),
                 ),
           
                 // password text
@@ -106,6 +107,9 @@ class RegisterPage extends StatelessWidget {
                   controller: passwordController,
                   hintText: 'Password',
                   obscureText: true,
+                  prefixIcon: const Icon(Icons.lock, color: Color(0xffAD94C7),),
+                  suffixIcon: const Icon(Icons.visibility_off, color: Color(0xffAD94C7),),
+
                 ),
           
                 const SizedBox(height: 20),
@@ -135,6 +139,8 @@ class RegisterPage extends StatelessWidget {
                   controller: passwordConfirmationController,
                   hintText: 'Password Confirmation',
                   obscureText: true,
+                  prefixIcon: const Icon(Icons.lock, color: Color(0xffAD94C7),),
+                  suffixIcon: const Icon(Icons.visibility_off, color: Color(0xffAD94C7),),
                 ),
           
                 // button
@@ -142,7 +148,9 @@ class RegisterPage extends StatelessWidget {
                 const SizedBox(height: 20),
 
                 RegisterButton(
-                  onTap: signuserin
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                  }
                 ),
 
                 const SizedBox(height: 10),
