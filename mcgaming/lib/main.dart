@@ -3,6 +3,7 @@ import 'package:mcgaming/pages/home_page.dart';
 import 'package:mcgaming/pages/login_page.dart';
 import 'package:mcgaming/pages/play_later.dart';
 import 'package:mcgaming/pages/register_page.dart';
+import 'package:mcgaming/pages/settings.dart';
 import 'package:mcgaming/pages/splash_screen.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: PlayLater(),
+      home: SettingsPage(),
       // home: RegisterPage(),
     );
 

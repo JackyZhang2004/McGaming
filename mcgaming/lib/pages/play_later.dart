@@ -101,6 +101,9 @@ class _PlayLaterState extends State<PlayLater> {
                   width: 200.0,
                   height: 40.0,
                   child: TextField(
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
                     decoration: InputDecoration(
                       hintText: "Search something",
                       hintStyle: TextStyle(
@@ -181,7 +184,8 @@ class _PlayLaterState extends State<PlayLater> {
                   children: [
                     AllGamesTab(gamesdata: gamesdata),
                     GenreGamesTab(gamesdata: gamesdata, genre: 'RPG'),
-                    GenreGamesTab(gamesdata: gamesdata, genre: 'Xbox Game Pass'),
+                    GenreGamesTab(
+                        gamesdata: gamesdata, genre: 'Xbox Game Pass'),
                     GenreGamesTab(gamesdata: gamesdata, genre: 'Open World'),
                     GenreGamesTab(gamesdata: gamesdata, genre: 'FPS'),
                   ],
