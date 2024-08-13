@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:mcgaming/pages/clow_chat.dart';
+import 'package:mcgaming/pages/edit_profile.dart';
 import 'package:mcgaming/pages/home_page.dart';
 import 'package:mcgaming/pages/login_page.dart';
 import 'package:mcgaming/pages/play_later.dart';
+import 'package:mcgaming/pages/profile.dart';
 import 'package:mcgaming/pages/register_page.dart';
 import 'package:mcgaming/pages/settings.dart';
 import 'package:mcgaming/pages/splash_screen.dart';
+import 'package:mcgaming/pages/tictactoe_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,10 +20,19 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
+<<<<<<< Updated upstream
       home: HomePage(),
+=======
+      home: ClowChat(),
+      // home: ProfilePage(),
+      // home: EditProfilePage(),
+>>>>>>> Stashed changes
       // home: RegisterPage(),
+      // home: LoginPage(),
+      // home: HomePage(),
+      // home: TicTacToePage(),
     );
 
     // return MaterialApp(
