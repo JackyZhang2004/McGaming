@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:mcgaming/pages/clow_chat.dart';
 import 'package:mcgaming/pages/edit_profile.dart';
 import 'package:mcgaming/pages/home_page.dart';
+import 'package:mcgaming/pages/landing_page.dart';
 import 'package:mcgaming/pages/login_page.dart';
+import 'package:mcgaming/pages/my_game_page.dart';
 import 'package:mcgaming/pages/play_later.dart';
 import 'package:mcgaming/pages/profile.dart';
 import 'package:mcgaming/pages/register_page.dart';
@@ -22,13 +24,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-<<<<<<< Updated upstream
-      home: HomePage(),
-=======
-      home: ClowChat(),
-      // home: ProfilePage(),
-      // home: EditProfilePage(),
->>>>>>> Stashed changes
+      home: UserSelectionPage(),
       // home: RegisterPage(),
       // home: LoginPage(),
       // home: HomePage(),
