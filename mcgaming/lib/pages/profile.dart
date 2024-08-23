@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mcgaming/components/my_appbar.dart';
 import 'edit_profile.dart'; // Pastikan untuk mengimpor EditProfilePage
-import 'login_page.dart'; // Impor LoginPage
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -56,87 +55,30 @@ class ProfilePage extends StatelessWidget {
               margin: const EdgeInsets.symmetric(horizontal: 16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    width: double.infinity,
-                    child: Stack(
-                      children: [
-                        const Align(
-                          alignment: Alignment.center, // Center the text
-                          child: Text(
-                            'Your Activity',
-                            style: TextStyle(color: Color(0xFFE299FF), fontSize: 18),
-                          ),
-                        ),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: Padding(
-                            padding: const EdgeInsets.only(right: 16.0),
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => LoginPage()),
-                                );
-                              },
-                              child: const Icon(
-                                IconData(0xf88b, fontFamily: 'MaterialIcons'), // Ganti ikon
-                                color: Color(0xFFE299FF),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
+                children: const [
+                  Align(
+                    alignment: Alignment.center, // Center the text
+                    child: Text(
+                      'Your Activity',
+                      style: TextStyle(color: Color(0xFFE299FF), fontSize: 18),
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      activityColumn('10', 'Games'),
-                      activityColumn('12', 'Hours'),
-                      activityColumn('14', 'Minutes'),
+                      ActivityColumn('10', 'Games'),
+                      ActivityColumn('12', 'Hours'),
+                      ActivityColumn('14', 'Minutes'),
                     ],
                   ),
-                  const SizedBox(height: 10), // Reduced height
-                  infoRow('Name', 'Jack'),
-                  infoRow('Email', 'Jack@gmail.com'),
-                  infoRow('Bio', 'Tidak Ada'),
-                  const SizedBox(height: 20), // Increased height for better separation
+                  SizedBox(height: 10), // Reduced height
+                  InfoRow('Name', 'Jack'),
+                  InfoRow('Email', 'Jack@gmail.com'),
+                  InfoRow('Bio', 'Tidak Ada'),
+                  SizedBox(height: 20), // Increased height for better separation
                   Center(
-                    child: Container(
-                      width: 150,
-                      height: 33,
-                      decoration: BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Color(0xFFE299FF),
-                            spreadRadius: 1,
-                            blurRadius: 4,
-                            offset: Offset(0, 0),
-                          ),
-                        ],
-                      ),
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const EditProfilePage()),
-                          );
-                        },
-                        style: ElevatedButton.styleFrom(
-                          foregroundColor: const Color(0xFFE299FF),
-                          backgroundColor: Colors.black,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          side: BorderSide.none,
-                        ),
-                        child: const Text('Edit Profile'),
-                      ),
-                    ),
+                    child: EditProfileButton(),
                   ),
                 ],
               ),
@@ -160,8 +102,16 @@ class ProfilePage extends StatelessWidget {
       ),
     );
   }
+}
 
-  Widget activityColumn(String number, String label) {
+class ActivityColumn extends StatelessWidget {
+  final String number;
+  final String label;
+
+  const ActivityColumn(this.number, this.label);
+
+  @override
+  Widget build(BuildContext context) {
     return Column(
       children: [
         Text(
@@ -175,8 +125,16 @@ class ProfilePage extends StatelessWidget {
       ],
     );
   }
+}
 
-  Widget infoRow(String label, String info) {
+class InfoRow extends StatelessWidget {
+  final String label;
+  final String info;
+
+  const InfoRow(this.label, this.info);
+
+  @override
+  Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4), // Reduced vertical padding
       child: Column(
@@ -192,6 +150,47 @@ class ProfilePage extends StatelessWidget {
             style: const TextStyle(color: Colors.white, fontSize: 16),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class EditProfileButton extends StatelessWidget {
+  const EditProfileButton();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 150,
+      height: 33,
+      decoration: BoxDecoration(
+        color: Colors.black,
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: const [
+          BoxShadow(
+            color: Color(0xFFE299FF),
+            spreadRadius: 1,
+            blurRadius: 4,
+            offset: Offset(0, 0),
+          ),
+        ],
+      ),
+      child: ElevatedButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const EditProfilePage()),
+          );
+        },
+        style: ElevatedButton.styleFrom(
+          foregroundColor: const Color(0xFFE299FF),
+          backgroundColor: Colors.black,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          side: BorderSide.none,
+        ),
+        child: const Text('Edit Profile'),
       ),
     );
   }

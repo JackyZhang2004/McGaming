@@ -6,16 +6,25 @@ class ClowChat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF1C1A29), // Warna latar belakang
+      backgroundColor: const Color(0xFF1C1A29),
       appBar: AppBar(
-        backgroundColor: const Color(0xFF734ACC), // Warna navbar
+        backgroundColor: const Color(0xFF734ACC),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () {
+            Navigator.pushNamed(context, '/HomePage'); // Navigasi ke halaman utama
+          },
+        ),
         title: Row(
           children: [
-            CircleAvatar(
-              backgroundImage: AssetImage('assets/clow_avatar.png'), // Gambar avatar CLOW
-              radius: 20,
+            Padding(
+              padding: const EdgeInsets.only(left: 0), // Mengatur padding untuk mengurangi jarak antara ikon back dan avatar
+              child: CircleAvatar(
+                backgroundImage: AssetImage('assets/clow_avatar.png'), // Gambar avatar CLOW
+                radius: 20,
+              ),
             ),
-            const SizedBox(width: 10),
+            const SizedBox(width: 8), // Tambahkan sedikit jarak antara avatar dan teks
             const Text('CLOW', style: TextStyle(color: Colors.white)),
           ],
         ),
@@ -34,7 +43,7 @@ class ClowChat extends StatelessWidget {
                 ChatBubble(
                   text: 'Please give me game recommendations',
                   isClow: false,
-                  color: Color(0xFFFFE299FF),
+                  color: Color(0xFFE299FF),
                 ),
                 ChatBubble(
                   text: 'Sure, here are the top 5 recommendations:\n1. Tic Tac Toe\n2. Valorant\n3. Solo Leveling\n4. Genshin Impact\n5. Wuthering Waves',
@@ -100,11 +109,11 @@ class MessageInput extends StatelessWidget {
               borderRadius: BorderRadius.circular(24),
             ),
             child: const TextField(
-              style: TextStyle(color: Colors.white), // Teks berwarna putih saat mengetik
+              style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: 'Type your message...',
-                hintStyle: TextStyle(color: Colors.white54), // Placeholder berwarna putih pudar
+                hintStyle: TextStyle(color: Colors.white54),
               ),
             ),
           ),
