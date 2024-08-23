@@ -9,6 +9,8 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: const Color(0XFF1A1B1E),
+       leading: null,  // Menonaktifkan tombol default di sebelah kiri
+      automaticallyImplyLeading: false, 
       title: Padding(
         padding: const EdgeInsets.symmetric(vertical: 8.0),
         child: Row(

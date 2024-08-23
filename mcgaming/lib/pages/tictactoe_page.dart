@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mcgaming/pages/game_tictactoe.dart'; // Import your GameTictactoe page
 
-class TicTacToePage extends StatelessWidget {
-  const TicTacToePage({super.key});
+class TictactoePage extends StatelessWidget {
+  const TictactoePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,8 +12,8 @@ class TicTacToePage extends StatelessWidget {
         height: double.infinity,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('lib/images/background_tictactoe.jpg'), // Correct asset path
-            fit: BoxFit.cover, // Ensure the image covers the entire background
+            image: AssetImage('lib/images/background_tictactoe.jpg'), // Ensure the image path is correct
+            fit: BoxFit.cover, // Cover the background
           ),
         ),
         child: Column(
@@ -22,29 +23,25 @@ class TicTacToePage extends StatelessWidget {
               'TICTACTOE',
               style: TextStyle(
                 fontSize: 48,
-                color: Color(0xFFd59bf6), // Light purple/neon text color
+                color: Color(0xFFd59bf6), // Neon light purple text color
                 fontWeight: FontWeight.bold,
               ),
             ),
             const SizedBox(height: 60),
             CustomButton(
-              text: '1 Player',
+              text: 'Play Game',
               onPressed: () {
-                // Add functionality for 1 Player mode
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => GameTictactoe()), // Navigate to the game page
+                );
               },
             ),
             const SizedBox(height: 20),
             CustomButton(
-              text: '2 Players',
+              text: 'Back to Home',
               onPressed: () {
-                // Add functionality for 2 Players mode
-              },
-            ),
-            const SizedBox(height: 20),
-            CustomButton(
-              text: 'Back to home',
-              onPressed: () {
-                Navigator.pop(context);
+                Navigator.pop(context); // Go back to the previous screen
               },
             ),
           ],
@@ -78,5 +75,3 @@ class CustomButton extends StatelessWidget {
     );
   }
 }
-
-

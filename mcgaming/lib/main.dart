@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mcgaming/pages/clow_chat.dart';
 import 'package:mcgaming/pages/edit_profile.dart';
+import 'package:mcgaming/pages/game_tictactoe.dart';
 import 'package:mcgaming/pages/home_page.dart';
 import 'package:mcgaming/pages/landing_page.dart';
 import 'package:mcgaming/pages/login_page.dart';
@@ -24,11 +25,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: UserSelectionPage(),
+      // home: HomePage(),
+      // home: ClowChat(),
+      // home: GameTictactoe(),
+      // home: ProfilePage(),
+      // home: EditProfilePage(),
       // home: RegisterPage(),
       // home: LoginPage(),
       // home: HomePage(),
-      // home: TicTacToePage(),
+      home:  TictactoePage(),
     );
 
     // return MaterialApp(

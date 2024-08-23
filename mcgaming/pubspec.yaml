@@ -63,6 +63,8 @@ flutter:
   assets:
     - lib/images/
     - lib/images/background_tictactoe.jpg
+    - lib/images/x_image.png
+    - lib/images/o_image.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
