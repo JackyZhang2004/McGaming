@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mcgaming/components/custom_bottom_navbar.dart';
 import 'package:mcgaming/components/login_button.dart';
 import 'package:mcgaming/components/login_text_field.dart';
 import 'package:mcgaming/pages/home_page.dart';
@@ -87,7 +88,7 @@ class LoginPage extends StatelessWidget {
                         
                   LoginButton(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) =>CustomBottomNavbar2()));
                     },
 
                   ),

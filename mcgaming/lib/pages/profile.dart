@@ -87,19 +87,6 @@ class ProfilePage extends StatelessWidget {
           const Spacer(),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.black,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home, color: Color(0xFFE299FF)),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.emoji_emotions, color: Color(0xFFE299FF)),
-            label: '',
-          ),
-        ],
-      ),
     );
   }
 }
