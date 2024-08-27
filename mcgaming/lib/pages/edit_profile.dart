@@ -54,7 +54,7 @@ class EditProfilePage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Center(
+                  const Center(
                     child: Text(
                       'Your Activity',
                       style: TextStyle(color: Color(0xFFE299FF), fontSize: 18),
@@ -116,19 +116,7 @@ class EditProfilePage extends StatelessWidget {
           const SizedBox(height: 20), // Additional space at the bottom for better scrolling experience
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.black,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home, color: Color(0xFFE299FF)),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.emoji_emotions, color: Color(0xFFE299FF)),
-            label: '',
-          ),
-        ],
-      ),
+      
     );
   }
 
@@ -162,13 +150,13 @@ class EditProfilePage extends StatelessWidget {
             style: const TextStyle(color: Colors.white),
             decoration: InputDecoration(
               enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Color(0xFFE299FF)),
+                borderSide: const BorderSide(color: Color(0xFFE299FF)),
               ),
-              focusedBorder: UnderlineInputBorder(
+              focusedBorder: const UnderlineInputBorder(
                 borderSide: BorderSide(color: Color(0xFFE299FF)),
               ),
               hintText: initialValue,
-              hintStyle: TextStyle(color: Colors.white),
+              hintStyle: const TextStyle(color: Colors.white),
             ),
           ),
         ],

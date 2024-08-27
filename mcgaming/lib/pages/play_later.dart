@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:mcgaming/components/my_appbar.dart';
 import 'package:mcgaming/model/gameDataModel.dart';
 import 'package:mcgaming/pages/game_detail.dart';
+import 'package:mcgaming/pages/item_detail_page.dart';
 
-class PlayLater extends StatefulWidget {
-  const PlayLater({super.key});
+class MyGame extends StatefulWidget {
+  const MyGame({super.key});
 
   @override
-  State<PlayLater> createState() => _PlayLaterState();
+  State<MyGame> createState() => _MyGameState();
 }
 
-class _PlayLaterState extends State<PlayLater> {
+class _MyGameState extends State<MyGame> {
   static List gamename = [
     'Tic Tac Toe',
     'Forza Horizon 5 xbox',
@@ -81,7 +82,7 @@ class _PlayLaterState extends State<PlayLater> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: const Color(0XFF1A1B1E),
-        appBar: const MyAppbar(title: 'Play Later',),
+        appBar: const MyAppbar(title: 'PLAY LATER',),
         body: DefaultTabController(
           length: 5,
           child: Column(
@@ -150,9 +151,13 @@ class AllGamesTab extends StatelessWidget {
         return GestureDetector(
           onTap: () {
             Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => GameDetail(
-                      gamedatamodel: gamesdata[index],
-                    )));
+              builder: (context) => ItemDetailPage(
+                item: gamesdata[index],
+              )
+            )
+          );
+
+                    
           },
           child: Column(
             children: [
@@ -205,9 +210,11 @@ class GenreGamesTab extends StatelessWidget {
         return GestureDetector(
           onTap: () {
             Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => GameDetail(
-                      gamedatamodel: filteredGames[index],
-                    )));
+                builder: (context) => ItemDetailPage(
+                item: gamesdata[index],
+                )
+              )
+            );
           },
           child: Column(
             children: [

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:mcgaming/model/gameDataModel.dart';
+import 'package:mcgaming/pages/game_tictactoe.dart';
 
 class ItemDetailPage extends StatelessWidget {
-  final Map<String, String> item;
+  final Gamedatamodel item;
 
   ItemDetailPage({required this.item});
 
@@ -31,9 +33,9 @@ class ItemDetailPage extends StatelessWidget {
                   viewportFraction: 1.0,
                 ),
                 items: [
-                  'lib/images/dummylabux.png',
-                  'lib/images/dummylabux.png',
-                  'lib/images/dummylabux.png'
+                  item.imageURL,
+                  item.imageURL,
+                  item.imageURL,
                 ].map((imagePath) {
                   return Builder(
                     builder: (BuildContext context) {
@@ -52,7 +54,7 @@ class ItemDetailPage extends StatelessWidget {
               ),
               SizedBox(height: 16),
               Text(
-                item['name']!,
+                item.name,
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
@@ -60,29 +62,27 @@ class ItemDetailPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 8),
-              DetailRow(title: 'Developer', value: 'Ghoran'),
-              DetailRow(title: 'Released Date', value: 'September 23, 2024'),
-              DetailRow(title: 'Published by', value: 'Ubisoft'),
-              DetailRow(title: 'Genre', value: 'Racing'),
+              DetailRow(title: 'Developer', value: item.developer),
+              DetailRow(title: 'Released Date', value: item.releaseDate),
+              DetailRow(title: 'Published by', value: item.publishedBy),
+              DetailRow(title: 'Genre', value: item.genre),
               SizedBox(height: 16),
               Text(
-                'Forza Horizon 5 bursts onto the scene as a vibrant open-world racing adventure set against the stunning backdrop of Mexico. Cruise through diverse biomes, from lush jungles and dusty deserts to historic cityscapes and soaring volcanic peaks. Collect and customize hundreds of the world\'s greatest cars, tackling exhilarating challenges and races that range from high-octane street sprints to off-road expeditions.',
+                item.description,
                 style: TextStyle(color: Colors.white),
               ),
               SizedBox(height: 16),
               Text(
                 'TAG',
-                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    color: Colors.white, fontWeight: FontWeight.bold),
               ),
               Wrap(
                 spacing: 8.0,
                 runSpacing: 4.0,
-                children: <Widget>[
-                  TagChip(label: 'Racing'),
-                  TagChip(label: 'Racing'),
-                  TagChip(label: 'Racing'),
-                  TagChip(label: 'Racing'),
-                ],
+                children: item.tag.map((tag) {
+                  return TagChip(label: tag);
+                }).toList(),
               ),
               SizedBox(height: 16),
               Center(
@@ -95,32 +95,27 @@ class ItemDetailPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(30),
                     ),
                   ),
-                  child: Text('Play',
-                  style: TextStyle(color:Colors.white),),
+                  
+              child: GestureDetector(
+                onTap: () {
+                  if (item.name == 'Tic Tac Toe') {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => TicTacToePage(),
+                    ));
+                  } else {
+                    // Handle other game navigation
+                  }
+                },
+                child: Text(
+                  'Play',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
                 ),
               ),
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Color(0xFF1A1B1E),
-        selectedItemColor: Colors.purple,
-        unselectedItemColor: Colors.white,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.gamepad),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: '',
-          ),
-        ],
       ),
     );
   }

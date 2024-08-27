@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart'; // Import this package
 import 'package:flutter/scheduler.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:mcgaming/components/my_appbar.dart';
+import 'package:mcgaming/model/gameDataModel.dart';
+import 'package:mcgaming/pages/my_game_page.dart';
 import 'item_detail_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -10,6 +14,72 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+    static List gamename = [
+    'Tic Tac Toe',
+    'Forza Horizon 5 xbox',
+    'Forza Horizon 5 open world',
+    'Forza Horizon 5 fps',
+    'Forza Horizon 5 rpg'
+  ];
+  static List url = [
+    'lib/images/tictactoe.avif',
+    'lib/images/forzahorizon.jpg',
+    'lib/images/forzahorizon.jpg',
+    'lib/images/forzahorizon.jpg',
+    'lib/images/forzahorizon.jpg'
+  ];
+  static List developer = [
+    'developer 1',
+    'developer 2',
+    'developer 3',
+    'developer 4',
+    'developer 5'
+  ];
+  static List releaseDate = [
+    'September 23, 2022',
+    'November 9, 2021',
+    'November 11, 2021',
+    'November 25, 2021',
+    'November 9, 2021'
+  ];
+  static List publishedBy = [
+    'Ubisoft',
+    'Garena',
+    'Electronic Arts',
+    'Capcom',
+    'Garena'
+  ];
+  static List genre = ['RPG', 'Xbox Game Pass', 'Open World', 'FPS', 'RPG'];
+  static List description = [
+    'Forza Horizon focuses specifically on casual street racing, rather than professionally on race tracks, as it takes place on a map of temporarily closed public roads. The open-world map that players can explore is based on the U.S. state of Colorado.',
+    'Forza Horizon focuses specifically on casual street racing, rather than professionally on race tracks, as it takes place on a map of temporarily closed public roads. The open-world map that players can explore is based on the U.S. state of Colorado.',
+    'Forza Horizon focuses specifically on casual street racing, rather than professionally on race tracks, as it takes place on a map of temporarily closed public roads. The open-world map that players can explore is based on the U.S. state of Colorado.',
+    'Forza Horizon focuses specifically on casual street racing, rather than professionally on race tracks, as it takes place on a map of temporarily closed public roads. The open-world map that players can explore is based on the U.S. state of Colorado.',
+    'Forza Horizon focuses specifically on casual street racing, rather than professionally on race tracks, as it takes place on a map of temporarily closed public roads. The open-world map that players can explore is based on the U.S. state of Colorado.'
+  ];
+  static List tag = [
+    ['Racing', 'Extreme'],
+    ['Racing', 'Extreme'],
+    ['Racing', 'Extreme'],
+    ['Racing', 'Extreme'],
+    ['Racing', 'Extreme']
+  ];
+
+  final List<Gamedatamodel> gamesdata = List.generate(
+    gamename.length,
+    (index) => Gamedatamodel(
+        '${gamename[index]}',
+        '${url[index]}',
+        '${developer[index]}',
+        '${releaseDate[index]}',
+        '${publishedBy[index]}',
+        '${genre[index]}',
+        '${description[index]}',
+        tag[index]),
+  );
+
+  
   final String username = 'Jack';
 
   @override
@@ -18,81 +88,24 @@ class _HomePageState extends State<HomePage> {
     SchedulerBinding.instance.addPostFrameCallback((_) {
       showUserSelectionDialog(context);
     });
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarColor: Color(0xFF1A1B1E),
+      statusBarIconBrightness: Brightness.light,
+    ));
   }
 
   void showUserSelectionDialog(BuildContext context) {
-    // showDialog(
-    //   context: context,
-    //   barrierDismissible: false,
-    //   builder: (BuildContext context) {
-    //     return AlertDialog(
-    //       contentPadding: EdgeInsets.all(16.0),
-    //       content: SizedBox(
-    //         height: 200,
-    //         child: ListView(
-    //           scrollDirection: Axis.horizontal,
-    //           children: <Widget>[
-    //             UserProfile(
-    //               imagePath: 'lib/images/dummylabux.png',
-    //               userName: 'User 1',
-    //               onTap: () {
-    //                 Navigator.of(context).pop();
-    //                 // Add action for User 1
-    //               },
-    //             ),
-    //             UserProfile(
-    //               imagePath: 'lib/images/dummylabux.png',
-    //               userName: 'User 2',
-    //               onTap: () {
-    //                 Navigator.of(context).pop();
-    //                 // Add action for User 2
-    //               },
-    //             ),
-    //             UserProfile(
-    //               imagePath: 'lib/images/dummylabux.png',
-    //               userName: 'User 3',
-    //               onTap: () {
-    //                 Navigator.of(context).pop();
-    //                 // Add action for User 3
-    //               },
-    //             ),
-    //           ],
-    //         ),
-    //       ),
-    //     );
-    //   },
-    // );
+    // Implementation for user selection dialog
   }
 
   @override
   Widget build(BuildContext context) {
+    // Get the `gamesdata` from `_MyGameState`
+    final gamesdata = _HomePageState().gamesdata;
+
     return Scaffold(
-      backgroundColor: Color(0xFF1A1B1E),
-      appBar: AppBar(
-        backgroundColor: Color(0xFF1A1B1E),
-        title: Row(
-          children: [
-            Image.asset('lib/images/dummylabux.png', height: 40),
-            SizedBox(width: 16),
-            Expanded(
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: 'Search something',
-                  hintStyle: TextStyle(color: Colors.white54),
-                  filled: true,
-                  fillColor: Colors.transparent,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                    borderSide: BorderSide(color: Colors.purple, width: 2),
-                  ),
-                  contentPadding: EdgeInsets.symmetric(horizontal: 20),
-                ),
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
-          ],
-        ),
-      ),
+      backgroundColor: const Color(0xFF1A1B1E),
+      appBar: const MyAppbar(title: 'Home'),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -101,7 +114,7 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.all(16.0),
               child: Text(
                 'Hi, $username',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
@@ -109,8 +122,8 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Jumbotron(),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
+            const Padding(
+              padding: EdgeInsets.all(16.0),
               child: Text(
                 'Recommendation',
                 style: TextStyle(
@@ -120,7 +133,8 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            RecommendedGamesSection(),
+            // Pass `gamesdata` to `RecommendedGamesSection`
+            RecommendedGamesSection(gamesdata: gamesdata),
           ],
         ),
       ),
@@ -149,10 +163,10 @@ class UserProfile extends StatelessWidget {
             backgroundImage: AssetImage(imagePath),
             radius: 40,
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Text(
             userName,
-            style: TextStyle(color: Colors.white),
+            style: const TextStyle(color: Colors.white),
           ),
         ],
       ),
@@ -194,12 +208,9 @@ class Jumbotron extends StatelessWidget {
 }
 
 class RecommendedGamesSection extends StatelessWidget {
-  final List<Map<String, String>> recommendedGames = [
-    {'name': 'Halo Infinite', 'image': 'lib/images/dummylabux.png'},
-    {'name': 'Forza Horizon 5', 'image': 'lib/images/dummylabux.png'},
-    {'name': 'Cyberpunk 2077', 'image': 'lib/images/dummylabux.png'},
-    {'name': 'The Witcher 3', 'image': 'lib/images/dummylabux.png'},
-  ];
+  final List<Gamedatamodel> gamesdata;
+
+  RecommendedGamesSection({required this.gamesdata});
 
   @override
   Widget build(BuildContext context) {
@@ -208,41 +219,42 @@ class RecommendedGamesSection extends StatelessWidget {
       child: GridView.builder(
         shrinkWrap: true,
         physics: NeverScrollableScrollPhysics(),
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 8,
           mainAxisSpacing: 8,
-          childAspectRatio: 3 / 2,  // Ratio ini bisa disesuaikan dengan ukuran gambar
+          childAspectRatio: 3 / 2,
         ),
-        itemCount: recommendedGames.length,
+        itemCount: gamesdata.length,
         itemBuilder: (BuildContext context, int index) {
-          final game = recommendedGames[index];
+          final game = gamesdata[index];
           return GestureDetector(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ItemDetailPage(item: game),
-                ),
-              );
+             Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => ItemDetailPage(
+                item: gamesdata[index],
+              )
+            )
+            );
             },
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  height: 120,  // Atur sesuai ukuran gambar
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    image: DecorationImage(
-                      image: AssetImage(game['image']!),
-                      fit: BoxFit.cover,
+                Flexible(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      image: DecorationImage(
+                        image: AssetImage(game.imageURL),
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Text(
-                  game['name']!,
-                  style: TextStyle(color: Colors.white),
+                  game.name,
+                  style: const TextStyle(color: Colors.white),
                 ),
               ],
             ),

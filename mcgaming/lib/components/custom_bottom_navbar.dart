@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mcgaming/pages/clow_chat.dart';
 import 'package:mcgaming/pages/home_page.dart';
+import 'package:mcgaming/pages/item_detail_page.dart';
 import 'package:mcgaming/pages/my_game_page.dart';
 import 'package:mcgaming/pages/profile.dart';
 import 'package:mcgaming/pages/settings.dart';
@@ -24,7 +25,7 @@ class _CustomBottomNavbarState extends State<CustomBottomNavbar2> with SingleTic
       ProfilePage(),
       MyGame(),
       ClowChat(),
-      SettingsPage()
+      SettingsPage(),
     ];
 
     void _selectState(int index){
@@ -45,12 +46,12 @@ void _showLightbox(BuildContext context) {
     showDialog(
       context: context,
       barrierDismissible: true,
-      barrierColor: Colors.black54, // Adjust the background color
+      barrierColor: Colors.black54, 
       builder: (BuildContext context) {
         return Center(
           child: GestureDetector(
             onTap: () {
-              _resetImageAndClose(context); // Close the dialog when tapping outside
+              _resetImageAndClose(context); 
             },
             child: Column(
               children: [
@@ -84,19 +85,19 @@ void _showLightbox(BuildContext context) {
                               borderRadius: BorderRadius.circular(100),
                               boxShadow: [
                                 BoxShadow(
-                                  color: const Color(0xFFE299FF).withOpacity(1), // Warna bayangan dengan transparansi
-                                  offset: const Offset(0, 7), // Mengatur bayangan ke atas objek (x: 0, y: -4)
-                                  blurRadius: 6, // Menentukan blur bayangan
-                                  spreadRadius: 2, // Menentukan penyebaran bayangan
+                                  color: const Color(0xFFE299FF).withOpacity(1), 
+                                  offset: const Offset(0, 7), 
+                                  blurRadius: 6, 
+                                  spreadRadius: 2, 
                                 ),
                               ],
                               border: Border.all(
-                              color: const Color(0xFFE299FF), // Warna outline
+                              color: const Color(0xFFE299FF), 
                               width: 2.0,  
                             ),
                              image: const DecorationImage(
-                                image: AssetImage('lib/images/mygame_icon.png'), // Replace with your image path
-                                fit: BoxFit.none, // Adjust the fit according to your needs
+                                image: AssetImage('lib/images/mygame_icon.png'), 
+                                fit: BoxFit.none, 
                               ),
                             ),
                           ),

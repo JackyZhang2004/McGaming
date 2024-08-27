@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mcgaming/components/my_appbar.dart';
 import 'package:mcgaming/model/gameDataModel.dart';
 import 'package:mcgaming/pages/game_detail.dart';
+import 'package:mcgaming/pages/item_detail_page.dart';
 
 class MyGame extends StatefulWidget {
   const MyGame({super.key});
@@ -150,9 +151,13 @@ class AllGamesTab extends StatelessWidget {
         return GestureDetector(
           onTap: () {
             Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => GameDetail(
-                      gamedatamodel: gamesdata[index],
-                    )));
+              builder: (context) => ItemDetailPage(
+                item: gamesdata[index],
+              )
+            )
+          );
+
+                    
           },
           child: Column(
             children: [
@@ -205,9 +210,11 @@ class GenreGamesTab extends StatelessWidget {
         return GestureDetector(
           onTap: () {
             Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => GameDetail(
-                      gamedatamodel: filteredGames[index],
-                    )));
+                builder: (context) => ItemDetailPage(
+                item: gamesdata[index],
+                )
+              )
+            );
           },
           child: Column(
             children: [

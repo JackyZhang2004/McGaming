@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mcgaming/components/custom_bottom_navbar.dart';
 
 void main() {
   runApp(MyApp());
@@ -34,51 +35,75 @@ class UserSelectionPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   // User 1
-                  Column(
-                    children: [
-                      Container(
-                        width: 100,
-                        height: 100,
-                        decoration: BoxDecoration(
-                          color: Colors.cyan[900],
-                          borderRadius: BorderRadius.circular(10),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => CustomBottomNavbar2()),
+                      );
+                    },
+                    child: Column(
+                      children: [
+                        Container(
+                          width: 100,
+                          height: 100,
+                          decoration: BoxDecoration(
+                            color: Colors.cyan[900],
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Icon(Icons.person, color: Colors.white, size: 60), // Perbesar ukuran ikon
                         ),
-                        child: Icon(Icons.person, color: Colors.white, size: 60), // Perbesar ukuran ikon
-                      ),
-                      SizedBox(height: 12),
-                      Text("Jack", style: TextStyle(color: Colors.white, fontSize: 18)), // Perbesar ukuran teks
-                    ],
+                        SizedBox(height: 12),
+                        Text("Jack", style: TextStyle(color: Colors.white, fontSize: 18)), // Perbesar ukuran teks
+                      ],
+                    ),
                   ),
                   // User 2
-                  Column(
-                    children: [
-                      Container(
-                        width: 100,
-                        height: 100,
-                        decoration: BoxDecoration(
-                          color: Colors.orange,
-                          borderRadius: BorderRadius.circular(10),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => CustomBottomNavbar2()),
+                      );
+                    },
+                    child: Column(
+                      children: [
+                        Container(
+                          width: 100,
+                          height: 100,
+                          decoration: BoxDecoration(
+                            color: Colors.orange,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Icon(Icons.person, color: Colors.white, size: 60), // Perbesar ukuran ikon
                         ),
-                        child: Icon(Icons.person, color: Colors.white, size: 60), // Perbesar ukuran ikon
-                      ),
-                      SizedBox(height: 12),
-                      Text("Peng", style: TextStyle(color: Colors.white, fontSize: 18)), // Perbesar ukuran teks
-                    ],
+                        SizedBox(height: 12),
+                        Text("Peng", style: TextStyle(color: Colors.white, fontSize: 18)), // Perbesar ukuran teks
+                      ],
+                    ),
                   ),
                   // Tambah User
-                  Column(
-                    children: [
-                      Container(
-                        width: 100,
-                        height: 100,
-                        decoration: BoxDecoration(
-                          color: Colors.black,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => CustomBottomNavbar2()),
+                      );
+                    },
+                    child: Column(
+                      children: [
+                        Container(
+                          width: 100,
+                          height: 100,
+                          decoration: BoxDecoration(
+                            color: Colors.black,
+                          ),
+                          child: Icon(Icons.add, color: Colors.white, size: 60),
                         ),
-                        child: Icon(Icons.add, color: Colors.white, size: 60),
-                      ),
-                      SizedBox(height: 12),
-                      Text("Add User", style: TextStyle(color: Colors.white, fontSize: 18)),
-                    ],
+                        SizedBox(height: 12),
+                        Text("Add User", style: TextStyle(color: Colors.white, fontSize: 18)),
+                      ],
+                    ),
                   ),
                 ],
               ),

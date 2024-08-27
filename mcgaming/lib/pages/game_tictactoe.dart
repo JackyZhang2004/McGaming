@@ -194,7 +194,7 @@ class _GameTictactoeState extends State<GameTictactoe> {
                 onPressed: () {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => TicTacToePage()),
+                    MaterialPageRoute(builder: (context) => TictactoePage()),
                   );
                 },
               ),

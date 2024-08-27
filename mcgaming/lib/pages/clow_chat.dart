@@ -15,17 +15,17 @@ class ClowChat extends StatelessWidget {
             Navigator.pushNamed(context, '/HomePage'); // Navigasi ke halaman utama
           },
         ),
-        title: Row(
+        title: const Row(
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 0), // Mengatur padding untuk mengurangi jarak antara ikon back dan avatar
+              padding: EdgeInsets.only(left: 0), // Mengatur padding untuk mengurangi jarak antara ikon back dan avatar
               child: CircleAvatar(
                 backgroundImage: AssetImage('assets/clow_avatar.png'), // Gambar avatar CLOW
                 radius: 20,
               ),
             ),
-            const SizedBox(width: 8), // Tambahkan sedikit jarak antara avatar dan teks
-            const Text('CLOW', style: TextStyle(color: Colors.white)),
+            SizedBox(width: 8), // Tambahkan sedikit jarak antara avatar dan teks
+            Text('CLOW', style: TextStyle(color: Colors.white)),
           ],
         ),
       ),

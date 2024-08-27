@@ -16,12 +16,12 @@ class GameDetail extends StatelessWidget {
           body: Column(
             children: [
               Image.asset(gamedatamodel.imageURL),
-              Text(gamedatamodel.name, style: TextStyle(color: Colors.white),),
-              Text(gamedatamodel.developer, style: TextStyle(color: Colors.white),),
-              Text(gamedatamodel.releaseDate, style: TextStyle(color: Colors.white),),
-              Text(gamedatamodel.publishedBy, style: TextStyle(color: Colors.white),),
-              Text(gamedatamodel.genre, style: TextStyle(color: Colors.white),),
-              Text(gamedatamodel.description, style: TextStyle(color: Colors.white),),
+              Text(gamedatamodel.name, style: const TextStyle(color: Colors.white),),
+              Text(gamedatamodel.developer, style: const TextStyle(color: Colors.white),),
+              Text(gamedatamodel.releaseDate, style: const TextStyle(color: Colors.white),),
+              Text(gamedatamodel.publishedBy, style: const TextStyle(color: Colors.white),),
+              Text(gamedatamodel.genre, style: const TextStyle(color: Colors.white),),
+              Text(gamedatamodel.description, style: const TextStyle(color: Colors.white),),
             ],
           ),
         ));
