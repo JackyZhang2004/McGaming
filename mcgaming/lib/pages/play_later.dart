@@ -4,14 +4,14 @@ import 'package:mcgaming/model/gameDataModel.dart';
 import 'package:mcgaming/pages/game_detail.dart';
 import 'package:mcgaming/pages/item_detail_page.dart';
 
-class MyGame extends StatefulWidget {
-  const MyGame({super.key});
+class PlayLater extends StatefulWidget {
+  const PlayLater({super.key});
 
   @override
-  State<MyGame> createState() => _MyGameState();
+  State<PlayLater> createState() => _PlayLaterState();
 }
 
-class _MyGameState extends State<MyGame> {
+class _PlayLaterState extends State<PlayLater> {
   static List gamename = [
     'Tic Tac Toe',
     'Forza Horizon 5 xbox',

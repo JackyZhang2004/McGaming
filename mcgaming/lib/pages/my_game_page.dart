@@ -3,6 +3,7 @@ import 'package:mcgaming/components/my_appbar.dart';
 import 'package:mcgaming/model/gameDataModel.dart';
 import 'package:mcgaming/pages/game_detail.dart';
 import 'package:mcgaming/pages/item_detail_page.dart';
+import 'package:mcgaming/pages/play_later.dart';
 
 class MyGame extends StatefulWidget {
   const MyGame({super.key});
@@ -96,7 +97,30 @@ class _MyGameState extends State<MyGame> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10), // Reduced height to make room for the button
+              TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => (PlayLater())),
+            );
+                },
+                style: TextButton.styleFrom(
+                  backgroundColor: Color(0xffE299FF), // Button background color
+                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+                child: const Text(
+                  'Play Later',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
               const TabBar(
                 isScrollable: true,
                 tabAlignment: TabAlignment.start,

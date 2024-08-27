@@ -111,7 +111,7 @@ class UserSelectionPage extends StatelessWidget {
           ),
           // Gambar di atas container
           Positioned(
-            top: 50, // Jarak dari bagian atas
+            top: 200, // Jarak dari bagian atas
             child: Image.asset('lib/images/Group 27.png'),
           ),
         ],

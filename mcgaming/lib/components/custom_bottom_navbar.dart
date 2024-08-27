@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mcgaming/pages/clow_chat.dart';
+import 'package:mcgaming/pages/edit_profile.dart';
 import 'package:mcgaming/pages/home_page.dart';
 import 'package:mcgaming/pages/item_detail_page.dart';
 import 'package:mcgaming/pages/my_game_page.dart';
+import 'package:mcgaming/pages/play_later.dart';
 import 'package:mcgaming/pages/profile.dart';
 import 'package:mcgaming/pages/settings.dart';
 
@@ -26,6 +28,8 @@ class _CustomBottomNavbarState extends State<CustomBottomNavbar2> with SingleTic
       MyGame(),
       ClowChat(),
       SettingsPage(),
+      PlayLater(),
+      EditProfilePage(),
     ];
 
     void _selectState(int index){

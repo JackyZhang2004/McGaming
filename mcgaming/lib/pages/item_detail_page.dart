@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:mcgaming/model/gameDataModel.dart';
 import 'package:mcgaming/pages/game_tictactoe.dart';
+import 'package:mcgaming/pages/tictactoe_page.dart';
 
 class ItemDetailPage extends StatelessWidget {
   final Gamedatamodel item;
@@ -100,7 +101,7 @@ class ItemDetailPage extends StatelessWidget {
                 onTap: () {
                   if (item.name == 'Tic Tac Toe') {
                     Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => TicTacToePage(),
+                      builder: (context) => TictactoePage(),
                     ));
                   } else {
                     // Handle other game navigation
@@ -113,6 +114,7 @@ class ItemDetailPage extends StatelessWidget {
               ),
                 ),
               ),
+              const SizedBox(height: 20),
             ],
           ),
         ),

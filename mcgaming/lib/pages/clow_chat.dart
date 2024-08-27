@@ -12,7 +12,7 @@ class ClowChat extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
-            Navigator.pushNamed(context, '/HomePage'); // Navigasi ke halaman utama
+            Navigator.pop(context); // Navigasi ke halaman utama
           },
         ),
         title: const Row(
@@ -20,7 +20,7 @@ class ClowChat extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(left: 0), // Mengatur padding untuk mengurangi jarak antara ikon back dan avatar
               child: CircleAvatar(
-                backgroundImage: AssetImage('assets/clow_avatar.png'), // Gambar avatar CLOW
+                backgroundImage: AssetImage('lib/images/clow_chat.png'), // Gambar avatar CLOW
                 radius: 20,
               ),
             ),

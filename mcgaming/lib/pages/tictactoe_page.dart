@@ -10,7 +10,7 @@ class TictactoePage extends StatelessWidget {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('lib/images/background_tictactoe.jpg'), // Ensure the image path is correct
             fit: BoxFit.cover, // Cover the background
@@ -33,13 +33,13 @@ class TictactoePage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => GameTictactoe()), // Navigate to the game page
+                  MaterialPageRoute(builder: (context) =>  GameTictactoe()), // Navigate to the game page
                 );
               },
             ),
             const SizedBox(height: 20),
             CustomButton(
-              text: 'Back to Home',
+              text: 'Exit',
               onPressed: () {
                 Navigator.pop(context); // Go back to the previous screen
               },
